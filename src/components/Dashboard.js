@@ -10,7 +10,12 @@ function Dashboard() {
     const navigate=useNavigate()
     let userObj=currentuser; 
     let valuesArray=[];
-    valuesArray= Object.values(data);  
+    if(data==null){
+        <h1>Invalid data</h1>
+    }else{
+        valuesArray= Object.values(data);
+    }
+    
     function handleNutrition() {
         navigate("/nutrition");
     }
