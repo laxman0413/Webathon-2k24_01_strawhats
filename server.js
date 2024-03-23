@@ -33,6 +33,7 @@ app.post("/get-data",(request,response)=>{
     })
     .then((data)=>{
         response.status(201).send({message:"days info",payload:data})
+        console.log(data);
     })
     .catch((err)=>{
         console.log("err is",err);

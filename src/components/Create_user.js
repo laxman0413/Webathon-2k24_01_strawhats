@@ -15,7 +15,7 @@ function Create_user() {
 
     useEffect(()=>{
         if(userStatus===true){
-            navigate("/dashboard");
+            navigate("/profile");
         }
     },[userStatus])
 

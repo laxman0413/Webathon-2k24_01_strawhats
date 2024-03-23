@@ -8,8 +8,8 @@ function Home() {
     }
   return (
     <div id="Home">
-        <img src="https://cdn.dribbble.com/users/276066/screenshots/10830516/getfit_pt_animated_logo_4x.png" width="100%" height="100%" alt='Bgimage'></img>
-        <button className='btn btn-primary mt-20' type='button' onClick={handleSubmit}>Create User</button>
+        <img onClick={handleSubmit} src="https://cdn.dribbble.com/users/276066/screenshots/10830516/getfit_pt_animated_logo_4x.png" width="100%" height="50%" alt='Bgimage'></img>
+        <button className='btn btn-primary mb-20 ' type='button' onClick={handleSubmit}>Create User</button>
     </div>
   )
 }

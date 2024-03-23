@@ -6,58 +6,42 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 function Dashboard() {
   let [currentuser,error,userStatus,data,CreateUser]=useContext(CreateUserContext)
-    let [data1,setdata]=useState({});
+    let [day,setday]=useState("");
     const navigate=useNavigate()
     let userObj=currentuser; 
-    const valuesArray = Object.values(data);  // Destructuring assignment
-
-// Create a new object with specific properties you want
+    let valuesArray=[];
+    valuesArray= Object.values(data);  
+    function handleNutrition() {
+        navigate("/nutrition");
+    }
     function handleMonday()
-     {
-        console.log(valuesArray[3])
+    {
+        setday(valuesArray[8]);
     }
     function handleTuesday()
      {
-        let userobf={
-            '2':'walking'
-        }
-        setdata({...userobf})
+        setday(valuesArray[9]);
     }
     function handleWednesday()
      {
-        let userobf={
-            '3':'jogging'
-        }
-        setdata({...userobf})
+        setday(valuesArray[10]);
     }
     function handleThursday()
      {
-        let userobf={
-            '4':'swimming'
-        }
-        setdata({...userobf})
+        setday(valuesArray[11]);
     }
     function handleFriday()
      {
-        let userobf={
-            '5':'cardio'
-        }
-        setdata({...userobf})
+        setday(valuesArray[12]);
     }
     
     function handleSaturday()
      {
-        let userobf={
-            '6':'rest'
-        }
-        setdata({...userobf})
+        setday(valuesArray[13]);
     }
     function handleSunday()
      {
-        let userobf={
-            '7':'rest'
-        }
-        setdata({...userobf})
+        setday("Rest");
     }
     function handleProfile() {
       navigate("/profile")
@@ -65,15 +49,19 @@ function Dashboard() {
   return (
     <div>
         <div className="row">
-            <div className="col-sm-3 col-md-4 col-lg-6 bg-primary">
+            <div className="col-sm-8 col-md-9 col-lg-8 bg-dark text-white ">
                 <h1 className=''>GET FIT</h1>
             </div>
-            <div className="col-sm-3 col-md-4 col-lg-6 bg-secondary ml-10">
+            <div className="col-sm-1 col-md-1 col-lg-1 bg-dark text-white ml-10">
+                <button className="green" onClick={handleNutrition}>Nutrition</button>
+            </div>
+            <div className="col-sm-3 col-md-2 col-lg-3 bg-dark text-white ml-10">
                 <button className="green" onClick={handleProfile}>profile</button>
             </div>
         </div>
-        <div className="row">
-            <div className="col-sm-2 col-md-3 col-lg-4 bg-danger mt-10">
+        <div className="row  container h-100">
+            <div className="col-sm-2 col-md-3 col-lg-4 bg-secondary text-white mt-10">
+                    <h2 className='bg-warning'>Day</h2>
                 <div className="text-blue ">
                     <button className="badge text-bg-primary s-100% h-100%" onClick={handleMonday}>MONDAY</button>
                     <div className="col-sm-6 col-md-5 col-lg-4 bg-info mt-100">
@@ -98,10 +86,17 @@ function Dashboard() {
                 <button className="badge text-bg-primary s-100% h-100%"onClick={handleSunday}>SUNDAY</button>
                 </div>
             </div>
-            <div className="col-sm-6 col-md-5 col-lg-4 bg-info mt-100">
-            {Object.keys(data).map(key => (
-                        <div key={key}>{data[key]}</div>
-                    ))}
+                    
+            <div className="col-sm-6 col-md-5 col-lg-4  mt-100">
+            <h2 className='bg-warning'>Work Out</h2>
+            {day}
+            </div>
+                    
+            <div className="col-sm-6 col-md-5 col-lg-4  mt-100">
+            <h2 className='bg-warning'>Nutrition</h2>
+                <div><h3>BreakFast: </h3>{valuesArray[5]}</div>
+                <div><h3>Lunch: </h3>{valuesArray[6]}</div>
+                <div><h3>Dinner: </h3>{valuesArray[7]}</div>
             </div>
         </div>
 
